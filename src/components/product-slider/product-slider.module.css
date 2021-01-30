@@ -4,12 +4,12 @@
     background-color: #FFFFFF;
     border-radius: 5px;
 }
-.slider__top {
+.slider-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 90px;
 }
-.slider__top__svg {
+.slider-top__svg {
     cursor: pointer;
 }

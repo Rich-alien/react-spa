@@ -21,11 +21,11 @@ class Header extends React.Component {
                         </svg>
                     </div>
 
-                    <nav className={style.header__nav}>
+                    <nav className={style['header-nav']}>
                         {/* временная замена тега до подключения React-Router*/}
-                        <div className={style.header__nav__href}>Home</div>
-                        <div className={style.header__nav__href}>Store</div>
-                        <div className={style.header__nav__href}>News</div>
+                        <div className={style['header-nav__href']}>Home</div>
+                        <div className={style['header-nav__href']}>Store</div>
+                        <div className={style['header-nav__href']}>News</div>
                         {/*<label className="header-search">*/}
 
                         {/*    /!* под вопром чуть позже будет фикс *!/*/}

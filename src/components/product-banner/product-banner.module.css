@@ -3,7 +3,7 @@
     display: flex;
     flex-wrap: wrap;
 }
-.cell__product {
+.cell-product {
     background-color: #FFFFFF;
     border-radius: 5px;
     width: 237px;
@@ -14,7 +14,7 @@
     justify-content: center;
     flex-direction: column;
 }
-.cell__product__name {
+.cell-product__name {
     display: flex;
     margin-top: 42px;
     margin-left: 8px;
@@ -23,6 +23,6 @@
     font-weight: normal;
     font-size: 14px;
 }
-.cell__product__img {
+.cell-product__img {
     margin: 48px auto 0;
 }

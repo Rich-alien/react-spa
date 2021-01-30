@@ -12,7 +12,7 @@
     align-items: center;
 }
 
-.header__nav {
+.header-nav {
     display: flex;
     min-width: 512px;
     margin-left: 105px;
@@ -22,7 +22,7 @@
     height: 100%;
 }
 
-.header__nav__href {
+.header-nav__href {
     color: #FFFFFF;
     text-decoration: none;
     font-family: "Sora", sans-serif;
