@@ -1,0 +1,28 @@
+.cell {
+    width: 492px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.cell__product {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    width: 237px;
+    height: 187px;
+    margin-left: 6px;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.cell__product__name {
+    display: flex;
+    margin-top: 42px;
+    margin-left: 8px;
+    text-align: left;
+    font-family: "Sora", sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+}
+.cell__product__img {
+    margin: 48px auto 0;
+}
