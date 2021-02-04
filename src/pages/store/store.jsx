@@ -4,7 +4,8 @@ class Store extends React.Component {
     render() {
         return (
             <div>
-                <button>hero</button>
+                {/* компонента по сортировке и т.п. */}
+                {/* компонента вывода продуктов */}
             </div>
         )
     }
