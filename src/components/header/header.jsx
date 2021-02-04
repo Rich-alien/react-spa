@@ -1,12 +1,14 @@
 import * as React from "react";
 import style from "./header.module.css"
+import {NavLink} from "react-router-dom"
+
 
 class Header extends React.Component {
     render() {
         return (
             <header className={style.header}>
                 <div className={style.header__left}>
-                    <div className={style.header__logo}>
+                    <NavLink to='/home' className={style.header__logo}>
                         <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="18.0001" cy="18" r="18" fill="white"/>
                             <line x1="4.14548" y1="6.36201" x2="17.9544" y2="15.3492" stroke="#FF0000"
@@ -19,31 +21,15 @@ class Header extends React.Component {
                             <line x1="18.3451" y1="20.5699" x2="34.5451" y2="10.9699" stroke="#FF0000"/>
                             <line x1="16.6" y1="36.0001" x2="16.6" y2="9.15527e-05" stroke="#FF0000" strokeWidth="4"/>
                         </svg>
-                    </div>
-
+                    </NavLink>
                     <nav className={style['header-nav']}>
-                        {/* временная замена тега до подключения React-Router*/}
-                        <div className={style['header-nav__href']}>Home</div>
-                        <div className={style['header-nav__href']}>Store</div>
-                        <div className={style['header-nav__href']}>News</div>
-                        {/*<label className="header-search">*/}
-
-                        {/*    /!* под вопром чуть позже будет фикс *!/*/}
-
-                        {/*    <input className="header-search__input" placeholder="Search..." type="search">*/}
-                        {/*        <svg className="header-search__svg" width="24" height="24" viewBox="0 0 24 24"*/}
-                        {/*             fill="none"*/}
-                        {/*             xmlns="http://www.w3.org/2000/svg">*/}
-                        {/*            <path*/}
-                        {/*                d="M17.5764 18.9986L12.8089 14.2326C10.6525 15.655 7.76938 15.215 6.13553 13.2141C4.50168 11.2133 4.64715 8.30073 6.47224 6.4726C8.30023 4.64699 11.2134 4.50091 13.2149 6.13449C15.2164 7.76806 15.6567 10.6512 14.234 12.8076L18.9995 17.5756L17.5764 18.9986ZM10.0326 7.01259C8.5917 7.01168 7.35081 8.02862 7.06879 9.4415C6.78676 10.8544 7.54216 12.2697 8.87301 12.822C10.2039 13.3742 11.7395 12.9095 12.5408 11.7121C13.3422 10.5147 13.186 8.91806 12.1678 7.8986C11.603 7.32994 10.8341 7.0109 10.0326 7.01259Z"*/}
-                        {/*                fill="white"/>*/}
-                        {/*        </svg>*/}
-                        {/*    </input>*/}
-                        {/*</label>*/}
+                        <NavLink to='/home' className={style['header-nav__href']}>Home</NavLink>
+                        <NavLink to='/store' className={style['header-nav__href']}>Store</NavLink>
+                        <NavLink to='/news' className={style['header-nav__href']}>News</NavLink>
                     </nav>
                 </div>
                 <div className={style.header__right}>
-                    <div className={style.header__cart}>
+                    <NavLink to='/cart' className={style.header__cart}>
                         <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clipPath="url(#clip0)">
                                 <path
@@ -65,7 +51,8 @@ class Header extends React.Component {
                                 </clipPath>
                             </defs>
                         </svg>
-                    </div>
+                    </NavLink>
+                    {/*добавить страничку под авторизацию!*/}
                     <button className={style.header__button}>
                         sign in
                     </button>
