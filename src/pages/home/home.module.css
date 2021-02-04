@@ -1,0 +1,7 @@
+.home-viewer{
+    display: flex;
+    justify-content: center;
+}
+.home-container{
+    padding: 0 40px;
+}
