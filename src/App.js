@@ -1,27 +1,21 @@
 import React from 'react';
 import './App.css';
+import Home from "./pages/home/home";
+import Store from "./pages/store/store";
 import Header from "./components/header/header";
-import Banner from "./components/baner/banner";
-import ProductBanner from "./components/product-banner/product-banner";
-import ProductSlider from "./components/product-slider/product-slider";
 import Footer from "./components/footer/footer";
-import SelectYear from "./components/select-year/select-year";
-
+import {BrowserRouter, Route} from "react-router-dom";
 
 const App = () => {
     return (
-        <div className="App">
-            <div className="header">
+        <BrowserRouter>
+            <div className="App">
                 <Header/>
-                <Banner/>
+                <Route path='/store' render={() => <Store/>}/>
+                <Route path='/' render={() => <Home/>}/>
+                <Footer/>
             </div>
-            <div className="main-container">
-                <ProductBanner/>
-                <ProductSlider/>
-            </div>
-            <SelectYear/>
-            <Footer/>
-        </div>
+        </BrowserRouter>
     );
 }
 
