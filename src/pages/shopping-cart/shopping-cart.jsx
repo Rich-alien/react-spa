@@ -1,13 +1,13 @@
 import * as React from "react";
 
-class Store extends React.Component {
+class ShoppingCart extends React.Component {
     render() {
         return (
             <div>
-                <button>hero</button>
+                <p>Hi</p>
             </div>
         )
     }
 }
 
-export default Store;
+export default ShoppingCart;
