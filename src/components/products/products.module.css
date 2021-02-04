@@ -1,0 +1,17 @@
+.product-container {
+    margin-right: 40px;
+}
+
+.product-image {
+    width: 300px;
+    height: 300px;
+}
+
+.product-name {
+    color: white;
+    margin-top: 5px;
+}
+.product-price {
+    color: white;
+    margin-top: 5px;
+}
