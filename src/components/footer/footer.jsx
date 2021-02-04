@@ -5,7 +5,7 @@ class Footer extends React.Component{
         return(
             <footer className={style.footer}>
                 <div className={style.top}>
-                    <img className={style.top__img} src="#" alt="footer-img"/>
+                    {/*<img className={style.top__img} src="#" alt="footer-img"/>*/}
                 </div>
                 <div className={style.bottom}>
                 </div>
