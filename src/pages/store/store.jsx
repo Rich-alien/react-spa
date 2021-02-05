@@ -34,6 +34,7 @@ class Store extends React.Component {
                                 key={id}
                                 name={product.name}
                                 price={product.price}
+                                id={id}
                             />
                         )
                     )
