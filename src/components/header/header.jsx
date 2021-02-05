@@ -1,9 +1,14 @@
 import * as React from "react";
 import style from "./header.module.css"
 import {NavLink} from "react-router-dom"
+import ShoppingCart from "../shopping-cart/shopping-cart";
 
 
 class Header extends React.Component {
+    state = {
+        showCart: false
+    }
+
     render() {
         return (
             <header className={style.header}>
@@ -29,7 +34,7 @@ class Header extends React.Component {
                     </nav>
                 </div>
                 <div className={style.header__right}>
-                    <NavLink to='/cart' className={style.header__cart}>
+                    <div onClick={this.showCart} className={style.header__cart}>
                         <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clipPath="url(#clip0)">
                                 <path
@@ -51,14 +56,25 @@ class Header extends React.Component {
                                 </clipPath>
                             </defs>
                         </svg>
-                    </NavLink>
-                    {/*добавить страничку под авторизацию!*/}
+                    </div>
+                    <div className={style['container-template__cart']}>
+                        <ShoppingCart hisActive={this.state.showCart}/>
+                    </div>
+
                     <button className={style.header__button}>
                         sign in
                     </button>
                 </div>
             </header>
         )
+    }
+
+    showCart = () => {
+        this.setState({
+            ...this.state,
+            showCart: true
+        })
+
     }
 }
 
