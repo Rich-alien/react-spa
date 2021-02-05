@@ -1,0 +1,22 @@
+.container{
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+    padding: 10px 10px;
+    position: relative;
+    background: #eee;
+    border-radius: 3px;
+    text-align: center;
+}
+.hide{
+    display: none;
+}
+.container:before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    bottom: 100%;
+    border: 9px solid transparent;
+    border-bottom-color: #eee;
+    margin-left: 0;
+}
