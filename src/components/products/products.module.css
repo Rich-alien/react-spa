@@ -1,4 +1,5 @@
 .product-container {
+    position: relative;
     margin-right: 40px;
 }
 
@@ -14,4 +15,14 @@
 .product-price {
     color: white;
     margin-top: 5px;
+}
+.product-button__show{
+    position: absolute;
+    cursor: pointer;
+    height: 30px;
+    top: 30%;
+    left: 30%;
+}
+.product-button__hidden{
+    display: none;
 }
