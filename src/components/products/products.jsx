@@ -1,11 +1,12 @@
 import * as React from "react";
 import style from "./products.module.css"
 import productTemplate from "../.././img/product.jpg";
+
 let cartIndex = [];
+
 class Products extends React.Component {
     state = {
         onLeadProduct: false,
-
     }
 
     componentDidMount() {
@@ -27,7 +28,9 @@ class Products extends React.Component {
                 <div className={style['product-name']}>{this.props.name}</div>
                 <div className={style['product-price']}>{this.props.price}руб.</div>
                 <button
-                    onClick={()=>{this.addProductInCart(this.props.id)}}
+                    onClick={() => {
+                        this.addProductInCart(this.props.id)
+                    }}
                     className={style[this.state.onLeadProduct ?
                         'product-button__show' :
                         'product-button__hidden']}>
@@ -51,7 +54,7 @@ class Products extends React.Component {
     }
     addProductInCart = (id) => {
         cartIndex.push(id)
-        localStorage.setItem('array', JSON.stringify(cartIndex));
+        localStorage.setItem('shoppingCart', JSON.stringify(cartIndex));
 
     }
 }

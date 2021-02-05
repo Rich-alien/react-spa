@@ -7,6 +7,7 @@ class Store extends React.Component {
     state = {
         products: [],
         sortProducts: [],
+        indexFromStorage: ''
     }
 
     componentDidMount() {
@@ -17,9 +18,11 @@ class Store extends React.Component {
         //         product.name.substring(n, str.length - 1);
         //     }
         // })
+        let dataFromStorage = localStorage.getItem('shoppingCart');
         this.setState({
             ...this.state,
-            products: products
+            products: products,
+            indexFromStorage: dataFromStorage
         })
     }
 
@@ -35,6 +38,7 @@ class Store extends React.Component {
                                 name={product.name}
                                 price={product.price}
                                 id={id}
+                                dataFromStorage = {this.state.indexFromStorage}
                             />
                         )
                     )
