@@ -56,7 +56,11 @@ class ShoppingCart extends React.Component {
             <div className={style[this.props.hisActive ? 'container' : 'hide']}>
 
                 {
-                    cart.map((item, index) => (<CartLine key={index} number={item.name}/>))
+                    cart.map((item, index) => (<CartLine
+                        key={index}
+                        price={item.price}
+                        count={item.count}
+                        name={item.name}/>))
                 }
                 <button onClick={this.props.closeCart}>
                     X
