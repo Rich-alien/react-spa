@@ -7,18 +7,31 @@ import Footer from "./components/footer/footer";
 import {BrowserRouter, Route} from "react-router-dom";
 import News from "./pages/news/news";
 
-const App = () => {
-    return (
-        <BrowserRouter>
-            <div className="App">
-                <Header/>
-                    <Route path='/store' render={() => <Store/>}/>
+
+class App extends React.Component {
+    state = {
+        index: ''
+    }
+
+    render() {
+        return (
+            <BrowserRouter>
+                <div className="App">
+                    <Header index={this.state.index}/>
+                    <Route path='/store' render={() => <Store addProductInCart={this.addProductInCart}/>}/>
                     <Route path='/home' render={() => <Home/>}/>
                     <Route path='/news' render={() => <News/>}/>
-                <Footer/>
-            </div>
-        </BrowserRouter>
-    );
+                    <Footer/>
+                </div>
+            </BrowserRouter>
+        )
+    }
+
+    addProductInCart = (id) => {
+        this.setState({
+            index: id
+        })
+    }
 }
 
 export default App;

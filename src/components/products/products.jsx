@@ -1,17 +1,9 @@
 import * as React from "react";
 import style from "./products.module.css"
 import productTemplate from "../.././img/product.jpg";
-
-let cartIndex = [];
-
 class Products extends React.Component {
     state = {
         onLeadProduct: false,
-    }
-
-    componentDidMount() {
-        //загрузка данных с локал сторедж и запись в стате!
-        // ибо уничтожается данные в локалкеСтродже
     }
 
     render() {
@@ -27,9 +19,8 @@ class Products extends React.Component {
                      alt="img product"/>
                 <div className={style['product-name']}>{this.props.name}</div>
                 <div className={style['product-price']}>{this.props.price}руб.</div>
-                <button
-                    onClick={() => {
-                        this.addProductInCart(this.props.id)
+                <button onClick={()=>{
+                        this.props.addProductInCart(this.props.id)
                     }}
                     className={style[this.state.onLeadProduct ?
                         'product-button__show' :
@@ -52,11 +43,7 @@ class Products extends React.Component {
             onLeadProduct: false
         })
     }
-    addProductInCart = (id) => {
-        cartIndex.push(id)
-        localStorage.setItem('shoppingCart', JSON.stringify(cartIndex));
 
-    }
 }
 
 

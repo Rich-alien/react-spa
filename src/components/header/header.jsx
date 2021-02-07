@@ -58,7 +58,12 @@ class Header extends React.Component {
                         </svg>
                     </div>
                     <div className={style['container-template__cart']}>
-                        <ShoppingCart hisActive={this.state.showCart}/>
+
+                        <ShoppingCart
+                            closeCart={this.closeCart}
+                            index={this.props.index}
+                            hisActive={this.state.showCart}/>
+
                     </div>
 
                     <button className={style.header__button}>
@@ -74,7 +79,12 @@ class Header extends React.Component {
             ...this.state,
             showCart: true
         })
-
+    }
+    closeCart = () => {
+        this.setState({
+            ...this.state,
+            showCart: false
+        })
     }
 }
 

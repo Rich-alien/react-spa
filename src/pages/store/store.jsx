@@ -11,13 +11,6 @@ class Store extends React.Component {
     }
 
     componentDidMount() {
-        // функция по сокращению названий!
-        // let renderName = products.forEach(product => {
-        //     if (product.name.length > 20) {
-        //          let n = product.name.length ...; // просчет разницы
-        //         product.name.substring(n, str.length - 1);
-        //     }
-        // })
         let dataFromStorage = localStorage.getItem('shoppingCart');
         this.setState({
             ...this.state,
@@ -34,6 +27,7 @@ class Store extends React.Component {
                 <div className={style.container}>
                     {products.map((product, id) => (
                             <Products
+                                addProductInCart={this.props.addProductInCart}
                                 key={id}
                                 name={product.name}
                                 price={product.price}
