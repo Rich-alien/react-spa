@@ -51,7 +51,6 @@ class ShoppingCart extends React.Component {
     }
 
     render() {
-
         return (
             <div className={style[this.props.hisActive ? 'container' : 'hide']}>
 
@@ -63,7 +62,7 @@ class ShoppingCart extends React.Component {
                         name={item.name}/>))
                 }
                 <button onClick={this.props.closeCart}>
-                    X
+                    back
                 </button>
             </div>
         )
