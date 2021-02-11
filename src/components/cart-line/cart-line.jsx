@@ -1,51 +1,29 @@
 import * as React from "react";
 import style from './cart-line.module.css';
 
-class CartLine extends React.Component {
-    state = {
-        count: 0
-    }
 
-    componentDidMount() {
-        const {count} = this.props
-        this.setState({
-            ...this.state,
-            count,
-        })
-    }
+const FunctionalCartLine = ({name, price, count}) => {
 
-    render() {
-        return (
-            <div className={style.container}>
-                {this.props.name}
-                {this.props.price * this.state.count}
-                <div>
-                    <div onClick={this.increment}>
-                        +
-                    </div>
-                    <div className={style.counter}>
-                        {this.state.count}
-                    </div>
-                    <div onClick={this.decrement}>
-                        -
-                    </div>
+    const [value, setValue] = React.useState(count)
+
+    const increment = () => {
+        setValue(value + 1);
+    };
+    const decrement = () => {
+        setValue(value - 1);
+    };
+    return (
+        <div className={style.container}>
+            {name}
+            {price * value}
+            <div>
+                <div onClick={increment}> +</div>
+                <div className={style.counter}>
+                    {value}
                 </div>
+                <div onClick={decrement}>-</div>
             </div>
-        )
-    }
-
-    increment = () => {
-        this.setState({
-            ...this.state,
-            count: this.state.count + 1
-        })
-    }
-    decrement = () => {
-        this.setState({
-            ...this.state,
-            count: this.state.count - 1
-        })
-    }
+        </div>
+    )
 }
-
-export default CartLine;
+export default FunctionalCartLine;
