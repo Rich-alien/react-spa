@@ -1,4 +1,4 @@
-export const products = [
+export const productsData = [
     {
         id: 0,
         name: 'Футболка с принтом Marvel',

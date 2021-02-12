@@ -1,50 +1,36 @@
-import * as React from "react";
+import React, {useState} from "react";
 import style from "./products.module.css"
 import productTemplate from "../.././img/product.jpg";
-class Products extends React.Component {
-    state = {
-        onLeadProduct: false,
-    }
 
-    render() {
-        return (
-            <div
-                onMouseOver={this.showButton}
-                onMouseLeave={this.hideButton}
-                className={style['product-container']}>
-                <img className={style[this.state.onLeadProduct ?
-                    'product-image__blur' :
-                    'product-image']}
-                     src={productTemplate}
-                     alt="img product"/>
-                <div className={style['product-name']}>{this.props.name}</div>
-                <div className={style['product-price']}>{this.props.price}руб.</div>
-                <button onClick={()=>{
-                        this.props.addProductInCart(this.props.id)
-                    }}
-                    className={style[this.state.onLeadProduct ?
+const Products = ({name, price, id, addProductInCart}) => {
+    const [onLeadProduct, setOnLeadProduct] = useState(false);
+    const showButton = () => {
+        setOnLeadProduct(true);
+    }
+    const hideButton = () => {
+        setOnLeadProduct(false);
+    }
+    return (
+        <div
+            onMouseOver={showButton}
+            onMouseLeave={hideButton}
+            className={style['product-container']}>
+            <img className={style[onLeadProduct ?
+                'product-image__blur' :
+                'product-image']}
+                 src={productTemplate}
+                 alt="img product"/>
+            <div className={style['product-name']}>{name}</div>
+            <div className={style['product-price']}>{price}руб.</div>
+            <button onClick={() => {
+                addProductInCart(id)
+            }}
+                    className={style[onLeadProduct ?
                         'product-button__show' :
                         'product-button__hidden']}>
-                    добавить в корзину
-                </button>
-            </div>
-        )
-    }
-
-    showButton = () => {
-        this.setState({
-            ...this.state,
-            onLeadProduct: true
-        })
-    }
-    hideButton = () => {
-        this.setState({
-            ...this.state,
-            onLeadProduct: false
-        })
-    }
-
+                добавить в корзину
+            </button>
+        </div>
+    )
 }
-
-
 export default Products;
