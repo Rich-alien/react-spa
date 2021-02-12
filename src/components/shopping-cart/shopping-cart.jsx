@@ -1,13 +1,11 @@
-import React, {useState, useEffect,useMemo} from "react";
+import React, {useState, useEffect} from "react";
 import style from './shopping-cart.module.css';
 import {productsData} from "../../data/products.data"
 import FunctionalCartLine from "../cart-line/cart-line";
 
 
 let cartCount = 0;
-const useCart = () => {
-    // const [indexToCart, setIndexToCart] = useState(0);
-    const [cart, setCart] = useState([]);
+const ShoppingCart = ({hisActive, closeCart, index}) => {
     const renderProductInCart = (index) => {
         if (cartCount === 0) {
             cartCount++;
@@ -25,8 +23,16 @@ const useCart = () => {
             }
         }
     }
+    const [indexCart,setIndexCart] = useState(index);
+    const [cart,setCart] = useState([]);
+    useEffect(()=>{
+        renderProductInCart(index);
+        setIndexCart(index);
+    },[ indexCart, index])
+
     const addProductToCart = (id) => {
-        setCart(productsData[id]);
+
+        setCart([...cart,productsData[id]]);
     }
     const hasCollision = (id) => {
         let HasId = true;
@@ -37,21 +43,6 @@ const useCart = () => {
         });
         return HasId;
     }
-    return {
-        cart,
-        setCart,
-        renderProductInCart
-
-    }
-}
-const ShoppingCart = ({hisActive, closeCart, index}) => {
-    const {
-        cart,
-        renderProductInCart
-    } = useCart(index);
-    useEffect(() => {
-        renderProductInCart()
-    }, [])
     return (
         <div className={style[hisActive ? 'container' : 'hide']}>
             {cart === undefined ?
