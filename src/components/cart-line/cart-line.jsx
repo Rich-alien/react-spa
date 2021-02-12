@@ -1,19 +1,36 @@
 import React, {useEffect, useState} from "react";
 import style from './cart-line.module.css';
 
-
-const FunctionalCartLine = ({name, price, count}) => {
-
+const useCounter = () => {
     const [value, setValue] = useState(0)
-    useEffect(() => {
-        setValue(count)
-    },[])
+
     const increment = () => {
         setValue(value + 1);
     };
     const decrement = () => {
         setValue(value - 1);
     };
+
+    return {
+        value,
+        setValue,
+        increment,
+        decrement
+    }
+}
+
+const FunctionalCartLine = ({name, price, count}) => {
+    const {
+        value,
+        setValue,
+        increment,
+        decrement
+    } = useCounter()
+
+    useEffect(() => {
+        setValue(count)
+    }, [count, setValue])
+
     return (
         <div className={style.container}>
             {name}
