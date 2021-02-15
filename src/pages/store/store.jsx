@@ -12,6 +12,7 @@ const Store = ({addProductInCart}) => {
     return (
         <div>
             <div className={style.container}>
+
                 {products.map((product, id) => (
                         <Products
                             addProductInCart={addProductInCart}

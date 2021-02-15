@@ -7,6 +7,7 @@ import FunctionalCartLine from "../cart-line/cart-line";
 let cartCount = 0;
 const ShoppingCart = ({hisActive, closeCart, index}) => {
     const renderProductInCart = (index) => {
+
         if (cartCount === 0) {
             cartCount++;
             addProductToCart(index);
@@ -17,22 +18,25 @@ const ShoppingCart = ({hisActive, closeCart, index}) => {
             } else {
                 cart.forEach(item => {
                     if (item.id === index) {
+                        console.log(item);
                         item.count++;
                     }
                 });
             }
         }
     }
-    const [indexCart,setIndexCart] = useState(index);
-    const [cart,setCart] = useState([]);
-    useEffect(()=>{
-        renderProductInCart(index);
-        setIndexCart(index);
-    },[ indexCart, index])
+    const [indexCart, setIndexCart] = useState(index);
+    const [cart, setCart] = useState([]);
+    useEffect(() => {
+        if (index !== null) {
+            setIndexCart(index);
+            renderProductInCart(index);
+        }
+    }, [setIndexCart,index])
 
     const addProductToCart = (id) => {
 
-        setCart([...cart,productsData[id]]);
+        setCart([...cart, productsData[id]]);
     }
     const hasCollision = (id) => {
         let HasId = true;
