@@ -28,10 +28,20 @@ const ShoppingCart = ({hisActive, closeCart, index}) => {
     const [indexCart, setIndexCart] = useState(index);
     const [cart, setCart] = useState([]);
     useEffect(() => {
-        if (index !== null) {
+        debugger;
+
+        if (typeof index === "string" || index instanceof String ){
+
+            let  str = index.slice(1);
+            setIndexCart(Number.parseInt(str));
+            renderProductInCart(Number.parseInt(str));
+        }
+
+        else if (index !== null) {
             setIndexCart(index);
             renderProductInCart(index);
         }
+
     }, [setIndexCart,index])
 
     const addProductToCart = (id) => {
