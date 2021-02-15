@@ -13,7 +13,7 @@ class Header extends React.Component {
         return (
             <header className={style.header}>
                 <div className={style.header__left}>
-                    <NavLink to='/home' className={style.header__logo}>
+                    <NavLink to='/' className={style.header__logo}>
                         <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="18.0001" cy="18" r="18" fill="white"/>
                             <line x1="4.14548" y1="6.36201" x2="17.9544" y2="15.3492" stroke="#FF0000"
@@ -28,7 +28,7 @@ class Header extends React.Component {
                         </svg>
                     </NavLink>
                     <nav className={style['header-nav']}>
-                        <NavLink to='/home' className={style['header-nav__href']}>Home</NavLink>
+                        <NavLink to='/' className={style['header-nav__href']}>Home</NavLink>
                         <NavLink to='/store' className={style['header-nav__href']}>Store</NavLink>
                         <NavLink to='/news' className={style['header-nav__href']}>News</NavLink>
                     </nav>
