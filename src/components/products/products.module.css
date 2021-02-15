@@ -28,15 +28,20 @@
     background: transparent;
 }
 .product-button-description__show{
+    display: flex;
+    height: 50px;
+    align-items: center;
+    padding:0 35px;
     position: absolute;
     cursor: pointer;
     font-weight: bold;
-    height: 50px;
     top: 10%;
     left: 30%;
     color: white;
     border: 2px solid white;
     background: transparent;
+    text-decoration: none;
+
 }
 .product-button__hidden{
     display: none;

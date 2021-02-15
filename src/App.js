@@ -4,17 +4,19 @@ import Home from "./pages/home/home";
 import Store from "./pages/store/store";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
-import { Route, Switch} from "react-router-dom";
+import {BrowserRouter, Route, Switch, useLocation} from "react-router-dom";
 import News from "./pages/news/news";
 import DescriptionProduct from "./components/description-product/description-product";
-import {useQueryParams} from "./hooks/use-query-params.hook";
 
 
 const App = () => {
     const [indexCart, setIndexCart] = useState(null);
 
-    const params = useQueryParams();
-    console.log(params.get);
+    // const location = useLocation()
+    // const params = new URLSearchParams(location.search);
+    // const q=params.get("q")
+    // console.log(q);
+
     return (
             <div className="App">
                 <Header index={indexCart}/>
