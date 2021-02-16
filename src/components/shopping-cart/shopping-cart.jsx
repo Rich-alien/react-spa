@@ -28,7 +28,6 @@ const ShoppingCart = ({hisActive, closeCart, index}) => {
     const [indexCart, setIndexCart] = useState(index);
     const [cart, setCart] = useState([]);
     useEffect(() => {
-        debugger;
 
         if (typeof index === "string" || index instanceof String ){
 

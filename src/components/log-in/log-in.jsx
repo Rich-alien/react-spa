@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React from "react";
 const LogIn = () => {
-    const [data,setData] = useState([]);
+    // const [data,setData] = useState([]);
     return (
         <form className="form">
             <div className="field">
