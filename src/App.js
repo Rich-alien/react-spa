@@ -13,9 +13,11 @@ import LogIn from "./components/log-in/log-in";
 const App = () => {
     const [indexCart, setIndexCart] = useState(null);
     const addNumber = (id)=>{
-        setIndexCart(id);
-        if(id===indexCart){
-            setIndexCart('x'+id)
+        debugger;
+        if(id === indexCart){
+            setIndexCart(`${id}`)
+        }else{
+            setIndexCart(id);
         }
     }
     return (
