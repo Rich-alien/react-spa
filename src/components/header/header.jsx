@@ -31,6 +31,7 @@ class Header extends React.Component {
                         <NavLink to='/' className={style['header-nav__href']}>Home</NavLink>
                         <NavLink to='/store' className={style['header-nav__href']}>Store</NavLink>
                         <NavLink to='/news' className={style['header-nav__href']}>News</NavLink>
+                        <NavLink to='/log-in' className={style['header-nav__href']}>Log-in</NavLink>
                     </nav>
                 </div>
                 <div className={style.header__right}>
