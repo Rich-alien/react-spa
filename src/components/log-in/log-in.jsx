@@ -1,8 +1,11 @@
-import React, {useState} from "react";
+import React from "react";
+import { useForm } from 'react-hook-form';
 const LogIn = () => {
-    const [data,setData] = useState([]);
+    const { register, handleSubmit, errors } = useForm()
+
+    const onSubmit = data => console.log('Submit: ', data)
     return (
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit(onSubmit)}>
             <div className="field">
                 <label>First name</label>
                 <input type="text" name="first-name" placeholder="First Name"/>
@@ -11,7 +14,7 @@ const LogIn = () => {
                 <label>Last name</label>
                 <input type="text" name="last-name" placeholder="Last Name"/>
             </div>
-            <button className="button" type="submit">Submit</button>
+            <button  type="submit">Submit</button>
         </form>
     )
 }
