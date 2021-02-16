@@ -7,7 +7,6 @@ import FunctionalCartLine from "../cart-line/cart-line";
 let cartCount = 0;
 const ShoppingCart = ({hisActive, closeCart, index}) => {
     const renderProductInCart = (index) => {
-
         if (cartCount === 0) {
             cartCount++;
             addProductToCart(index);
@@ -28,21 +27,15 @@ const ShoppingCart = ({hisActive, closeCart, index}) => {
     const [indexCart, setIndexCart] = useState(index);
     const [cart, setCart] = useState([]);
     useEffect(() => {
-        debugger;
-
-        if (typeof index === "string" || index instanceof String ){
-
-            let  str = index.slice(1);
-            setIndexCart(Number.parseInt(str));
-            renderProductInCart(Number.parseInt(str));
-        }
-
-        else if (index !== null) {
+        if (typeof index === "string" || index instanceof String) {
+            setIndexCart(Number.parseInt(index));
+            renderProductInCart(Number.parseInt(index));
+        } else if (index !== null) {
             setIndexCart(index);
             renderProductInCart(index);
         }
 
-    }, [setIndexCart,index])
+    }, [setIndexCart, index])
 
     const addProductToCart = (id) => {
 
