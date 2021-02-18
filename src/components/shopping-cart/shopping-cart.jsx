@@ -24,6 +24,7 @@ const ShoppingCart = ({hisActive, closeCart, index}) => {
             }
         }
     }
+    // eslint-disable-next-line no-unused-vars
     const [indexCart, setIndexCart] = useState(index);
     const [cart, setCart] = useState([]);
     useEffect(() => {
@@ -34,7 +35,7 @@ const ShoppingCart = ({hisActive, closeCart, index}) => {
             setIndexCart(index);
             renderProductInCart(index);
         }
-
+        // eslint-disable-next-line
     }, [setIndexCart, index])
 
     const addProductToCart = (id) => {
