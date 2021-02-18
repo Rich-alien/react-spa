@@ -7,7 +7,8 @@ import Footer from "./components/footer/footer";
 import { Route, Switch} from "react-router-dom";
 import News from "./pages/news/news";
 import DescriptionProduct from "./components/description-product/description-product";
-import LogIn from "./components/log-in/log-in";
+import LogInComponent from "./components/log-in/log-in.component";
+import ScrollToTop from "./components/scroll-to-top/scroll-to-top";
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
     }
     return (
             <div className="App">
+                <ScrollToTop/>
                 <Header index={indexCart}/>
                 <Switch>
 
@@ -32,7 +34,7 @@ const App = () => {
                         <DescriptionProduct/>
                     </Route>
                     <Route exact path="/log-in">
-                        <LogIn/>
+                        <LogInComponent/>
                     </Route>
                     <Route>
                         <h1 style={{color: 'white'}}>Error</h1>
