@@ -2,14 +2,29 @@ import React, {useState} from "react";
 import style from "./products.module.css"
 import productTemplate from "../.././img/product.jpg";
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
 
-const Products = ({name, price, id, addProductInCart}) => {
+const Products = ({name, price, id, }) => {
     const [onLeadProduct, setOnLeadProduct] = useState(false);
     const showButton = () => {
         setOnLeadProduct(true);
     }
     const hideButton = () => {
         setOnLeadProduct(false);
+    }
+    const dispatch = useDispatch()
+
+    const addProductInCart = ()=>{
+        dispatch({
+            type: 'addToCart',
+            payload:{
+                id: id,
+                name: name,
+                price: price,
+                count: 1
+            }
+        })
+        console.log(id)
     }
     return (
         <div
@@ -23,7 +38,7 @@ const Products = ({name, price, id, addProductInCart}) => {
                  alt="img product"/>
             <div className={style['product-name']}>{name}</div>
             <div className={style['product-price']}>{price}руб.</div>
-            <button onClick={() => {
+            <button onClick={()=>{
                 addProductInCart(id)
             }}
                     className={style[onLeadProduct ?
