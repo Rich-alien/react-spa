@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import style from './cart-line.module.css';
+import {useDispatch} from "react-redux";
 
 const useCounter = () => {
     const [value, setValue] = useState(0)
@@ -19,7 +20,7 @@ const useCounter = () => {
     }
 }
 
-const FunctionalCartLine = ({name, price, count}) => {
+const FunctionalCartLine = ({name, price, count,id}) => {
     const {
         value,
         setValue,
@@ -30,6 +31,15 @@ const FunctionalCartLine = ({name, price, count}) => {
     useEffect(() => {
         setValue(count)
     }, [count, setValue])
+    const dispatch = useDispatch()
+    const deleteProduct = (index) => {
+        dispatch({
+            type: 'deleteFromCart',
+            payload: {
+                id: index,
+            }
+        })
+    }
 
     return (
         <div className={style.container}>
@@ -42,6 +52,11 @@ const FunctionalCartLine = ({name, price, count}) => {
                 </div>
                 <div onClick={decrement}>-</div>
             </div>
+            {/*<button onClick={() => {*/}
+            {/*    deleteProduct(id)*/}
+            {/*}}>delete*/}
+            {/*</button>*/}
+
         </div>
     )
 }
