@@ -1,17 +1,11 @@
-import React, {useState} from "react";
+import React from "react";
 import style from "./products.module.css"
 import productTemplate from "../.././img/product.jpg";
 import {Link} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
-const Products = ({name, price, id, }) => {
-    const [onLeadProduct, setOnLeadProduct] = useState(false);
-    const showButton = () => {
-        setOnLeadProduct(true);
-    }
-    const hideButton = () => {
-        setOnLeadProduct(false);
-    }
+const Products = ({name, price, id}) => {
+
     const dispatch = useDispatch()
 
     const addProductInCart = ()=>{
@@ -24,12 +18,23 @@ const Products = ({name, price, id, }) => {
                 count: 1
             }
         })
-        console.log(id)
+    }
+    const onLeadProduct = useSelector(state => state.product.onLeadProduct)
+
+    const handleShowButton = ()=>{
+        dispatch({
+            type: 'showButton'
+        })
+    }
+    const handleHideButton = ()=>{
+        dispatch({
+            type: 'hideButton'
+        })
     }
     return (
         <div
-            onMouseOver={showButton}
-            onMouseLeave={hideButton}
+            onMouseOver={handleShowButton}
+            onMouseLeave={handleHideButton}
             className={style['product-container']}>
             <img className={style[onLeadProduct ?
                 'product-image__blur' :

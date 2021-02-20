@@ -1,5 +1,6 @@
 const initialProductState = {
-    product: []
+    product: [],
+    onLeadProduct: false
 }
 
 export function productReducer(state = initialProductState, action) {
@@ -13,6 +14,16 @@ export function productReducer(state = initialProductState, action) {
             return {
                 ...state,
                 query: action.payload
+            }
+        case 'showButton':
+            return {
+                ...state,
+                onLeadProduct: true
+            }
+        case 'hideButton':
+            return {
+                ...state,
+                onLeadProduct: false
             }
         default:
             return state
