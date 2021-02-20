@@ -4,7 +4,6 @@ const initialCartState = {
 }
 const renderProductInCart = (cart, data) => {
     if (hasCollision(cart, data.id)) {
-        console.log('collizia')
        return getNewCart(cart, data)
     } else {
         return [...cart, data]
@@ -12,14 +11,13 @@ const renderProductInCart = (cart, data) => {
 
 }
 const getNewCart = (cart, data) => {
-    let newCart = [...cart]
-    newCart.forEach((item) => {
+    cart.forEach((item) => {
             if (item.id === data.id) {
               item.count++;
             }
         }
     )
-    return [newCart]
+    return [...cart]
 }
 const hasCollision = (cart, id) => {
     let HasId = false;
