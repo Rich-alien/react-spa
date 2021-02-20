@@ -1,20 +1,9 @@
 const initialProductState = {
-    product: [],
-    onLeadProduct: false
+    onLeadProduct: false // возможное решение, переместить данное свойство в json как свойство!
 }
 
 export function productReducer(state = initialProductState, action) {
     switch (action.type) {
-        case 'setProducts':
-            return {
-                ...state,
-                product: action.payload
-            }
-        case 'setQuery':
-            return {
-                ...state,
-                query: action.payload
-            }
         case 'showButton':
             return {
                 ...state,
