@@ -1,6 +1,6 @@
 const initialCartState = {
     products: [],
-    activeCart: true // false
+    activeCart: false
 }
 const renderProductInCart = (cart, data) => {
     if (hasCollision(cart, data.id)) {
