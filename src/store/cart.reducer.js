@@ -2,20 +2,28 @@ const initialCartState = {
     products: [],
     activeCart: true // false
 }
-const renderProductInCart = (cart,data) => {
-    if (hasCollision(cart,data.id)) {
+const renderProductInCart = (cart, data) => {
+    if (hasCollision(cart, data.id)) {
         console.log('collizia')
-        return data;
+       return getNewCart(cart, data)
     } else {
-        return data
+        return [...cart, data]
     }
 
 }
-const hasCollision = (cart,id) => {
-
+const getNewCart = (cart, data) => {
+    let newCart = [...cart]
+    newCart.forEach((item) => {
+            if (item.id === data.id) {
+              item.count++;
+            }
+        }
+    )
+    return [newCart]
+}
+const hasCollision = (cart, id) => {
     let HasId = false;
     cart.forEach(item => {
-        console.log(item.id);
         if (item.id === id) {
             HasId = true;
         }
@@ -28,7 +36,7 @@ export function cartReducer(state = initialCartState, action) {
         case 'addToCart':
             return {
                 ...state,
-                products: [...state.products, renderProductInCart(state.products,action.payload)]
+                products: renderProductInCart(state.products, action.payload)
             }
         case 'deleteFromCart': {
             return {
@@ -45,12 +53,12 @@ export function cartReducer(state = initialCartState, action) {
         case 'incrementProduct':
             return {
                 ...state,
-                products: state.products[action.payload.id]++
+                products: state.products[action.payload.id]++ // не тот порядок id fix
             }
         case 'decrementProduct':
             return {
                 ...state,
-                products: state.products[action.payload.id]--
+                products: state.products[action.payload.id]-- // не тот порядок id fix
             }
         case 'openCart':
             return {
