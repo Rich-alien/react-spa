@@ -39,8 +39,21 @@
 
 .header__cart {
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
+.header__cart-count{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
 
+    color: white;
+    border: none;
+    background-color: green;
+    border-radius: 50%;
+}
 .header__right {
     display: flex;
     margin-right: 90px;
