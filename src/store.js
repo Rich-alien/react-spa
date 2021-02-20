@@ -1,39 +1,9 @@
 import {combineReducers, createStore} from "redux"
+import {cartReducer} from "./store/cart.reducer";
+import {productReducer} from "./store/product.reducer";
 
-const initialCartState = {
-        products: []
 
-}
 
-function cartReducer(state = initialCartState, action) {
-    switch (action.type) {
-        case 'addToCart':
-            return {
-                products: [...state.products, action.payload]
-            }
-        case 'deleteFromCart': {
-            return {
-                products: state.products.filter(p => p.id !== action.payload.id)
-            }
-        }
-        case 'clearCart': {
-            return {
-                products: []
-            }
-        }
-        default:
-            return state;
-    }
-}
-const initialProductState = {
-    product: []
-}
-function productReducer(state = initialProductState, action){
-    switch (action.type) {
-        default:
-            return state
-    }
-}
 const reducer = combineReducers(
     {
         cart: cartReducer,
