@@ -24,6 +24,9 @@ const ShoppingCart = () => {
             {
                 products.map(item=>item.name)
             }
+            {
+                products.map(item=>item.count)
+            }
             {/* на n время */}
             {/*{products === undefined ?*/}
             {/*    <div>В корзине пока что нет товаров </div> :*/}
