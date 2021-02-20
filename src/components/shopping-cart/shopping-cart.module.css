@@ -1,4 +1,4 @@
-.container{
+.container {
     z-index: 3;
     display: block;
     width: 300px;
@@ -9,9 +9,11 @@
     border-radius: 3px;
     text-align: center;
 }
-.hide{
+
+.hide {
     display: none;
 }
+
 .container:before {
     content: "";
     position: absolute;
@@ -20,4 +22,18 @@
     border: 9px solid transparent;
     border-bottom-color: #eee;
     margin-left: 0;
+}
+
+.delete__all {
+    border: none;
+    background-color: red;
+    padding: 5px ;
+    border-radius: 15px;
+    margin-right: 5px;
+}
+.close{
+    padding: 5px ;
+    border: none;
+    background-color: red;
+    border-radius: 15px;
 }
