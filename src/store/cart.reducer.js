@@ -4,7 +4,7 @@ const initialCartState = {
 }
 const renderProductInCart = (cart, data) => {
     if (hasCollision(cart, data.id)) {
-       return getNewCart(cart, data)
+        return getNewCart(cart, data)
     } else {
         return [...cart, data]
     }
@@ -13,7 +13,7 @@ const renderProductInCart = (cart, data) => {
 const getNewCart = (cart, data) => {
     cart.forEach((item) => {
             if (item.id === data.id) {
-              item.count++;
+                item.count++;
             }
         }
     )
@@ -27,6 +27,23 @@ const hasCollision = (cart, id) => {
         }
     });
     return HasId;
+}
+const increment = (state, id) => {
+    state.products.forEach(item => {
+        if(item.id === id){
+            item.count++;
+        }
+    })
+    return [...state.products]
+}
+const decrement = (state, id) => {
+    debugger;
+    state.products.forEach(item => {
+        if(item.id === id){
+            item.count--;
+        }
+    })
+    return [...state.products]
 }
 
 export function cartReducer(state = initialCartState, action) {
@@ -51,12 +68,13 @@ export function cartReducer(state = initialCartState, action) {
         case 'incrementProduct':
             return {
                 ...state,
-                products: state.products[action.payload.id]++ // не тот порядок id fix
+                products: increment(state, action.payload.id)
             }
         case 'decrementProduct':
+            increment(state, action.payload.id)
             return {
                 ...state,
-                products: state.products[action.payload.id]-- // не тот порядок id fix
+                products: decrement(state, action.payload.id)
             }
         case 'openCart':
             return {
