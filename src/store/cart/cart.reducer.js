@@ -1,3 +1,13 @@
+import {
+    ADD_TO_CART,
+    CLEAR_CART,
+    CLOSE_CART,
+    DECREMENT_PRODUCT,
+    DELETE_FROM_CART,
+    INCREMENT_PRODUCT,
+    OPEN_CART
+} from "./cart.actions";
+
 const initialCartState = {
     products: [],
     activeCart: false
@@ -48,40 +58,40 @@ const decrement = (state, id) => {
 
 export function cartReducer(state = initialCartState, action) {
     switch (action.type) {
-        case 'addToCart':
+        case ADD_TO_CART:
             return {
                 ...state,
                 products: renderProductInCart(state.products, action.payload)
             }
-        case 'deleteFromCart': {
+        case DELETE_FROM_CART: {
             return {
                 ...state,
                 products: state.products.filter(p => p.id !== action.payload.id)
             }
         }
-        case 'clearCart': {
+        case CLEAR_CART: {
             return {
                 ...state,
                 products: []
             }
         }
-        case 'incrementProduct':
+        case INCREMENT_PRODUCT:
             return {
                 ...state,
                 products: increment(state, action.payload.id)
             }
-        case 'decrementProduct':
+        case DECREMENT_PRODUCT:
             increment(state, action.payload.id)
             return {
                 ...state,
                 products: decrement(state, action.payload.id)
             }
-        case 'openCart':
+        case OPEN_CART:
             return {
                 ...state,
                 activeCart: true
             }
-        case 'closeCart':
+        case CLOSE_CART:
             return {
                 ...state,
                 activeCart: false
