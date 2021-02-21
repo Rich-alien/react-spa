@@ -1,26 +1,24 @@
 import React from "react";
 import style from './cart-line.module.css';
 import {useDispatch} from "react-redux";
+import {
+    decrementProduct,
+    deleteFromCart,
+    incrementProduct
+} from "../../store/cart/cart.actions";
 
 const FunctionalCartLine = ({name, id, count, price}) => {
 
     const dispatch = useDispatch()
 
     const handleIncrement = (index) => {
-        dispatch({
-            type: 'incrementProduct',
-            payload: {
-                id: index
-            }
-        })
+        dispatch(incrementProduct({id: index}))
+    }
+    const handleDeleteFromCart = (index) => {
+        dispatch(deleteFromCart({id: index}))
     }
     const handleDecrement = (index) => {
-        dispatch({
-            type: 'decrementProduct',
-            payload: {
-                id: index
-            }
-        })
+        dispatch(decrementProduct({id: index}))
     }
     return (
         <div className={style.container}>
@@ -37,6 +35,11 @@ const FunctionalCartLine = ({name, id, count, price}) => {
                 <div onClick={() => {
                     handleDecrement(id)
                 }}>-
+                </div>
+                <div onClick={() => {
+                    handleDeleteFromCart(id)
+                }}>
+                    delete
                 </div>
             </div>
         </div>
