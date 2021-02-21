@@ -5,14 +5,14 @@ import ShoppingCart from "../shopping-cart/shopping-cart";
 import {useDispatch, useSelector} from "react-redux";
 import {ReactComponent as LogoIconSvg} from '../../svg/logo.svg'
 import {ReactComponent as CartIconSvg} from '../../svg/cart.svg'
+import {selectCartCount} from "../../store/cart/cart.selectors";
+import {openCart} from "../../store/cart/cart.actions";
 
 const Header = () => {
     const dispatch = useDispatch()
-    const count = useSelector(state => state.cart.products.length)
+    const count = useSelector(selectCartCount)
     const handleClickCart = () => {
-        dispatch({
-            type: 'openCart'
-        })
+        dispatch(openCart())
     }
     return (
         <header className={style.header}>

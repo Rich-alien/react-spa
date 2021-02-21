@@ -4,6 +4,7 @@ import productTemplate from "../.././img/product.jpg";
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {addToCart} from "../../store/cart/cart.actions";
+import {selectLeadProduct} from "../../store/cart/cart.selectors";
 
 const Products = ({name, price, id}) => {
 
@@ -19,7 +20,7 @@ const Products = ({name, price, id}) => {
             }
         ))
     }
-    const onLeadProduct = useSelector(state => state.product.onLeadProduct)
+    const onLeadProduct = useSelector(selectLeadProduct)
 
     const handleShowButton = ()=>{
         dispatch({
