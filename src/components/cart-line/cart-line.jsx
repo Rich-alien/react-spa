@@ -2,7 +2,7 @@ import React from "react";
 import style from './cart-line.module.css';
 import {useDispatch} from "react-redux";
 
-const FunctionalCartLine = ({name, index}) => {
+const FunctionalCartLine = ({name, id, count, price}) => {
 
     const dispatch = useDispatch()
 
@@ -25,17 +25,17 @@ const FunctionalCartLine = ({name, index}) => {
     return (
         <div className={style.container}>
             {name}
-            {/*{price * value}*/}
+            {price * count}
             <div>
                 <div onClick={() => {
-                    handleIncrement(index)
+                    handleIncrement(id)
                 }}> +
                 </div>
                 <div className={style.counter}>
-                    {/*{value}*/}
+                    {count}
                 </div>
                 <div onClick={() => {
-                    handleDecrement(index)
+                    handleDecrement(id)
                 }}>-
                 </div>
             </div>
