@@ -8,7 +8,7 @@ import {ReactComponent as CartIconSvg} from '../../svg/cart.svg'
 
 const Header = () => {
     const dispatch = useDispatch()
-    const count = 0; // = useSelector(state =>  state.cart.products.length)
+    const count = useSelector(state => state.cart.products.length)
     const handleClickCart = () => {
         dispatch({
             type: 'openCart'
