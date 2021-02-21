@@ -3,21 +3,21 @@ import style from "./products.module.css"
 import productTemplate from "../.././img/product.jpg";
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
+import {addToCart} from "../../store/cart/cart.actions";
 
 const Products = ({name, price, id}) => {
 
     const dispatch = useDispatch()
 
-    const addProductInCart = ()=>{
-        dispatch({
-            type: 'addToCart',
-            payload:{
+    const handleAddProductInCart = ()=>{
+
+        dispatch(addToCart({
                 id: id,
                 name: name,
                 price: price,
                 count: 1
             }
-        })
+        ))
     }
     const onLeadProduct = useSelector(state => state.product.onLeadProduct)
 
@@ -44,7 +44,7 @@ const Products = ({name, price, id}) => {
             <div className={style['product-name']}>{name}</div>
             <div className={style['product-price']}>{price}руб.</div>
             <button onClick={()=>{
-                addProductInCart(id)
+                handleAddProductInCart(id)
             }}
                     className={style[onLeadProduct ?
                         'product-button__show' :

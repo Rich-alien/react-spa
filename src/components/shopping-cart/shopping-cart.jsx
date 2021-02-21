@@ -2,6 +2,7 @@ import React from "react";
 import style from './shopping-cart.module.css';
 import {useDispatch, useSelector} from "react-redux";
 import FunctionalCartLine from "../cart-line/cart-line";
+import {closeCart, deleteFromCart} from "../../store/cart/cart.actions";
 
 const ShoppingCart = () => {
     const products = useSelector(state => state.cart.products)
@@ -11,14 +12,10 @@ const ShoppingCart = () => {
     const dispatch = useDispatch()
 
     const handleCloseCart = () => {
-        dispatch({
-            type: 'closeCart'
-        })
+        dispatch(closeCart())
     }
     const handleDeleteCart = () => {
-        dispatch({
-            type: 'clearCart'
-        })
+        dispatch(deleteFromCart())
     }
     return (
         <div className={style[hisActive ? 'container' : 'hide']}>
