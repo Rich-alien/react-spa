@@ -25,17 +25,21 @@ const FunctionalCartLine = ({name, id, count, price}) => {
             {name}
             {price * count}
             <div>
+
                 <div onClick={() => {
                     handleIncrement(id)
                 }}> +
                 </div>
+
                 <div className={style.counter}>
                     {count}
                 </div>
+
                 <div onClick={() => {
                     handleDecrement(id)
                 }}>-
                 </div>
+
                 <div onClick={() => {
                     handleDeleteFromCart(id)
                 }}>

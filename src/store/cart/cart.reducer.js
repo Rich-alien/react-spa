@@ -40,17 +40,16 @@ const hasCollision = (cart, id) => {
 }
 const increment = (state, id) => {
     state.products.forEach(item => {
-        if(item.id === id){
+        if (item.id === id) {
             item.count++;
         }
     })
     return [...state.products]
 }
 const decrement = (state, id) => {
-    debugger;
     state.products.forEach(item => {
-        if(item.id === id){
-            item.count--;
+        if (item.id === id) {
+            item.count = item.count - 1;
         }
     })
     return [...state.products]
@@ -81,7 +80,6 @@ export function cartReducer(state = initialCartState, action) {
                 products: increment(state, action.payload.id)
             }
         case DECREMENT_PRODUCT:
-            increment(state, action.payload.id)
             return {
                 ...state,
                 products: decrement(state, action.payload.id)
