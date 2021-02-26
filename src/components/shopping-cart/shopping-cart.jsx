@@ -2,24 +2,19 @@ import React from "react";
 import style from './shopping-cart.module.css';
 import {useDispatch, useSelector} from "react-redux";
 import FunctionalCartLine from "../cart-line/cart-line";
-import {clearCart, closeCart} from "../../store/cart/cart.actions";
-import {selectActiveCart, selectCartProducts} from "../../store/cart/cart.selectors";
+import {clearCart} from "../../store/cart/cart.actions";
+import {selectCartProducts} from "../../store/cart/cart.selectors";
 
-const ShoppingCart = () => {
+const ShoppingCart = ({active,closeCart}) => {
     const products = useSelector(selectCartProducts)
-
-    const hisActive = useSelector(selectActiveCart)
 
     const dispatch = useDispatch()
 
-    const handleCloseCart = () => {
-        dispatch(closeCart())
-    }
     const handleDeleteCart = () => {
         dispatch(clearCart())
     }
     return (
-        <div className={style[hisActive ? 'container' : 'hide']}>
+        <div className={style[active ? 'container' : 'hide']}>
             {products === undefined ?
                 <div>В корзине пока что нет товаров </div> :
                 products.map((item, index) => (<FunctionalCartLine
@@ -32,7 +27,7 @@ const ShoppingCart = () => {
             }
 
             <button className={style.delete__all} onClick={handleDeleteCart}>delete all</button>
-            <button className={style.close} onClick={handleCloseCart}>close</button>
+            <button className={style.close} onClick={closeCart}>close</button>
         </div>
     )
 }

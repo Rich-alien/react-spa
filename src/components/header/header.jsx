@@ -1,18 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 import style from "./header.module.css"
 import {NavLink} from "react-router-dom"
 import ShoppingCart from "../shopping-cart/shopping-cart";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {ReactComponent as LogoIconSvg} from '../../svg/logo.svg'
 import {ReactComponent as CartIconSvg} from '../../svg/cart.svg'
 import {selectCartCount} from "../../store/cart/cart.selectors";
-import {openCart} from "../../store/cart/cart.actions";
+
 
 const Header = () => {
-    const dispatch = useDispatch()
     const count = useSelector(selectCartCount)
+    const [active, setActive] = useState(false);
     const handleClickCart = () => {
-        dispatch(openCart())
+        setActive(true);
+    }
+    const handleCloseCart = () => {
+        setActive(false);
     }
     return (
         <header className={style.header}>
@@ -38,7 +41,7 @@ const Header = () => {
 
                 </div>
                 <div className={style['container-template__cart']}>
-                    <ShoppingCart/>
+                    <ShoppingCart active={active} closeCart = {handleCloseCart}/>
                 </div>
                 <button className={style.header__button}>
                     sign in

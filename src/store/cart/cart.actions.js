@@ -40,13 +40,3 @@ export function decrementProduct(id) {
     }
 }
 
-export function openCart(){
-    return {
-        type: OPEN_CART,
-    }
-}
-export function closeCart(){
-    return {
-        type: CLOSE_CART,
-    }
-}

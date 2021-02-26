@@ -1,16 +1,13 @@
 import {
     ADD_TO_CART,
     CLEAR_CART,
-    CLOSE_CART,
     DECREMENT_PRODUCT,
     DELETE_FROM_CART,
     INCREMENT_PRODUCT,
-    OPEN_CART
 } from "./cart.actions";
 
 const initialCartState = {
     products: [],
-    activeCart: false
 }
 const renderProductInCart = (cart, data) => {
     if (hasCollision(cart, data.id)) {
@@ -83,16 +80,6 @@ export function cartReducer(state = initialCartState, action) {
             return {
                 ...state,
                 products: decrement(state, action.payload.id)
-            }
-        case OPEN_CART:
-            return {
-                ...state,
-                activeCart: true
-            }
-        case CLOSE_CART:
-            return {
-                ...state,
-                activeCart: false
             }
         default:
             return state;
