@@ -1,30 +1,36 @@
-import React, {useState, useEffect} from "react";
-
+import React, {useEffect} from "react";
 import Products from "../../components/products/products";
 import style from "./store.module.css"
-import {productsData} from "../../data/products.data"
+import {useDispatch, useSelector} from "react-redux";
+import {loadProducts} from "../../store/product/product.actions";
+import {selectLoading, selectProducts} from "../../store/product/product.selectors";
 
 const Store = ({addProductInCart}) => {
-    const [products, setProducts] = useState([]);
-    useEffect(() => {
-        setProducts(productsData)
-    }, [])
+    const products = useSelector(selectProducts)
+    const loading = useSelector(selectLoading) // тут типо над добавить условие для появления загрузки)
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        dispatch(loadProducts())
+    },[dispatch])
     return (
         <div>
-            <div className={style.container}>
+            {
+                loading? <div style={{color:"white"}}>loading...</div> : <div className={style.container}>
 
-                {products.map((product, id) => (
-                        <Products
-                            addProductInCart={addProductInCart}
-                            key={id}
-                            name={product.name}
-                            price={product.price}
-                            id={id}
-                        />
+                    {products.map((product, id) => (
+                            <Products
+                                addProductInCart={addProductInCart}
+                                key={id}
+                                name={product.name}
+                                price={product.price}
+                                id={id}
+                            />
+                        )
                     )
-                )
-                }
-            </div>
+                    }
+                </div>
+            }
+
         </div>
     )
 }
