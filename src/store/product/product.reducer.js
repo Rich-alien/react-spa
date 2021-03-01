@@ -1,8 +1,15 @@
-import {SET_LOADING, SET_PRODUCTS} from "./product.actions";
+import {
+    LOAD_PRODUCTS_FAILURE,
+    LOAD_PRODUCTS_PENDING,
+    LOAD_PRODUCTS_SUCCESS,
+    SET_LOADING,
+    SET_PRODUCTS
+} from "./product.actions";
 
 const initialProductState = {
     loading: true,
-    products: []
+    products: [],
+    error: false
 }
 
 export function productReducer(state = initialProductState, action) {
@@ -16,6 +23,25 @@ export function productReducer(state = initialProductState, action) {
             return {
                 ...state,
                 products: action.payload
+            }
+        case  LOAD_PRODUCTS_PENDING:
+            return {
+                ...state,
+                loading: true
+
+            }
+        case  LOAD_PRODUCTS_SUCCESS:
+            return {
+                ...state,
+                products: action.payload,
+                loading: false
+
+            }
+        case  LOAD_PRODUCTS_FAILURE:
+            return {
+                ...state,
+                error: true,
+                loading: false
             }
         default:
             return state;
