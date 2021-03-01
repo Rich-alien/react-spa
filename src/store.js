@@ -1,6 +1,7 @@
-import {combineReducers, createStore} from "redux"
+import {applyMiddleware, combineReducers, compose, createStore} from "redux"
 import {cartReducer} from "./store/cart/cart.reducer";
-import {productReducer} from "./store/product.reducer";
+import thunk from "redux-thunk";
+import {productReducer} from "./store/product/product.reducer";
 
 
 
@@ -10,6 +11,8 @@ const reducer = combineReducers(
         product: productReducer
     }
 )
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__ || compose
+const store = createStore(reducer, composeEnhancers(
+    applyMiddleware(thunk)))
 
 export default store;
