@@ -3,8 +3,7 @@ export const DELETE_FROM_CART = 'deleteFromCart';
 export const CLEAR_CART = 'clearCart';
 export const INCREMENT_PRODUCT = 'incrementProduct';
 export const DECREMENT_PRODUCT = 'decrementProduct';
-export const OPEN_CART = 'openCart';
-export const CLOSE_CART = 'closeCart';
+
 
 export function addToCart(product) {
     return {
