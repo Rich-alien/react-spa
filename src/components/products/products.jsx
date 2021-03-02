@@ -3,7 +3,7 @@ import style from "./products.module.css"
 import productTemplate from "../.././img/product.jpg";
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {addToCart} from "../../store/cart/cart.actions";
+import {addToCart} from "../../store/cart/cart.slice";
 
 const Products = ({name, price, id}) => {
     const [active, setActive] = useState(false)

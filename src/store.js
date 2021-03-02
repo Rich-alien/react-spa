@@ -1,5 +1,5 @@
 import {cartReducer} from "./store/cart/cart.slice";
-import {productReducer} from "./store/product/product.reducer";
+import {productReducer} from "./store/product/product.slice";
 import {configureStore} from "@reduxjs/toolkit";
 
 

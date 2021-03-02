@@ -5,7 +5,7 @@ import {
     decrementProduct,
     deleteFromCart,
     incrementProduct
-} from "../../store/cart/cart.actions";
+} from "../../store/cart/cart.slice";
 
 const FunctionalCartLine = ({name, id, count, price}) => {
 

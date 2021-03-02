@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import Products from "../../components/products/products";
 import style from "./store.module.css"
 import {useDispatch, useSelector} from "react-redux";
-import {loadProducts} from "../../store/product/product.actions";
+import {loadProducts} from "../../store/product/product.slice";
 import {selectLoading, selectProducts} from "../../store/product/product.selectors";
 
 const Store = ({addProductInCart}) => {

@@ -5,7 +5,7 @@ import ShoppingCart from "../shopping-cart/shopping-cart";
 import {useSelector} from "react-redux";
 import {ReactComponent as LogoIconSvg} from '../../svg/logo.svg'
 import {ReactComponent as CartIconSvg} from '../../svg/cart.svg'
-import {selectCartCount} from "../../store/cart/cart.selectors";
+import {selectCartCount} from "../../store/cart/cart.slice";
 
 
 const Header = () => {

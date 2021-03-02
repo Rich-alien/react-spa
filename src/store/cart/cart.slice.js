@@ -50,7 +50,8 @@ const slice = createSlice({
     initialState,
     reducers: {
         addToCart(state, action) {
-            renderProductInCart(state.products, action.payload)
+
+            state.products = renderProductInCart(state.products, action.payload)
         },
         deleteFromCart(state, action) {
             state.products = state.products.filter(p => p.id !== action.payload.id)
@@ -66,7 +67,13 @@ const slice = createSlice({
         }
     }
 })
-export const {addToCart,deleteFromCart,clearFromCart,incrementProduct,decrementProduct} = slice.actions;
+export const {
+    addToCart,
+    deleteFromCart,
+    clearFromCart,
+    incrementProduct,
+    decrementProduct
+} = slice.actions;
 export const cartReducer = slice.reducer;
 export const selectCartProducts = state => state.cart.products;
 export const selectProducts = state => state.product;
